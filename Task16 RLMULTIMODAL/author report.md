@@ -36,9 +36,9 @@ This distinction matters for the evidence review. Astra's transcript includes it
 
 ## Dimension 6 — Responsive and adaptive behavior
 
-**Preference: Tie**
+**Preference: Astra better**
 
-**Justification:** The comparable captures show both solutions reflowing the Activity page without horizontal clipping at 390px and 1440px (`Task16 RLMULTIMODAL/ASTRA/additional/activity-390.png`, `Task16 RLMULTIMODAL/GEMINI/activity-390.png`, and the corresponding `activity-1440.png` files). Astra uses a two-column insights strip at the narrow capture while Gemini stacks those cards into one column; both are readable and reachable layouts, not a demonstrated defect. Both also collapse the calendar/day panels and the checklist/chart areas to a single column at the narrow width, and both keep long milestone content inside its card. The supplied visual evidence therefore supports comparable responsive behavior; the difference in card stacking is a design trade-off rather than an objective winner.
+**Justification:** Both solutions reflow the calendar, selected-day card, checklist, chart, and milestone list without horizontal clipping at the matched 390px and 1440px captures. However, responsive behavior also has to preserve the information displayed inside a reflowed card. Gemini's chart implementation still applies `.slice(0, 6)` to the distribution groups (`RL16GEMINI/src/ActivityView.tsx`), and its narrow and desktop captures show `3000` total minutes in the insight card but only `1290 min` and six legend entries in “Time by piece” (`Task16 RLMULTIMODAL/GEMINI/activity-390.png`, `activity-1440.png`). Astra's matching captures keep the chart total at `3000 min` and retain all four mocked piece entries (`Task16 RLMULTIMODAL/ASTRA/additional/activity-390.png`, `activity-1440.png`). Gemini's one-column insights stack is otherwise readable, so the preference is driven by the concrete loss and contradiction of chart content across responsive states, not by test-count differences.
 
 ## Dimension 7 — UI interactions and state behavior
 
