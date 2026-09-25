@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: piano-companion-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: piano_companion
+      POSTGRES_USER: piano
+      POSTGRES_PASSWORD: piano_dev_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - piano_companion_pgdata:/var/lib/postgresql/data
+
+volumes:
+  piano_companion_pgdata:
