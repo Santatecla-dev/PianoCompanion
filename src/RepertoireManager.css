@@ -37,3 +37,21 @@ dialog.add-modal { position: fixed; margin: auto; max-width: calc(100% - 34px); 
 @media (max-width: 400px) {
   .filter-row { flex-direction: column; }
 }
+
+.manager-actions { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; justify-content: flex-end; }
+.manager-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 160px 160px; gap: 10px; margin-top: 24px; padding: 12px; background: #f8f4ef; border: 1px solid #eee6de; border-radius: 9px; }
+.manager-toolbar label, .detail-field { display: grid; gap: 5px; color: var(--muted); font-size: 10px; }
+.manager-toolbar input, .manager-toolbar select, .detail-field input, .detail-field select, .detail-field textarea { width: 100%; min-width: 0; border: 1px solid #ded8d7; border-radius: 6px; background: white; color: var(--ink); padding: 8px 9px; font: inherit; }
+.detail-field textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+.piece-actions { display: grid; gap: 4px; justify-items: start; }
+.piece-tags { display: flex !important; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.piece-tags span { display: inline-block !important; background: #f0eaf2; color: var(--plum) !important; border-radius: 20px; padding: 2px 6px; font-size: 8px !important; margin: 0 !important; }
+.piece-detail-dialog { position: fixed; inset: auto 0 0 auto; margin: 0; width: min(430px, 100vw); max-height: 100dvh; overflow: auto; border: 0; border-left: 1px solid var(--line); background: var(--paper); padding: 24px; box-shadow: -20px 0 60px #2f20352b; color: var(--ink); }
+.piece-detail-dialog::backdrop { background: #2b1c304d; }
+.piece-detail-dialog .piece-art { height: 130px; margin: 0 0 20px; }
+.piece-detail-dialog h2 { margin: 0; color: var(--plum); font: 500 25px 'Playfair Display'; overflow-wrap: anywhere; }
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
+.detail-dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
+.detail-dialog-actions .auth-submit { width: auto; margin: 0; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+@media (max-width: 680px) { .manager-actions { justify-content: stretch; }.manager-actions .session-button { width: 100%; }.manager-toolbar { grid-template-columns: 1fr; }.piece-actions { grid-column: 2; grid-row: 3; display: flex; flex-wrap: wrap; gap: 12px; }.piece-detail-dialog { width: 100%; border-left: 0; }.detail-grid { grid-template-columns: 1fr; } }

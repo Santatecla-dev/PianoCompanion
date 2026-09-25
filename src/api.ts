@@ -24,12 +24,12 @@ export function loginUser(input: { email: string; password: string }) {
 
 export function getPieces() { return request<ApiPiece[]>('/pieces') }
 
-export function createPracticeSession(input: { pieceId?: string; durationSeconds: number }) {
+export function createPracticeSession(input: { pieceId?: string; durationSeconds: number; notes?: string; date?: string }) {
   return request<PracticeSession>('/practice/sessions', { method: 'POST', body: JSON.stringify(input) })
 }
 
 export function getPracticeSessions() { return request<PracticeSession[]>('/practice/sessions') }
-export function updatePracticeSession(id: string, input: { durationSeconds?: number; date?: string; pieceId?: string | null }) { return request<PracticeSession>(`/practice/sessions/${id}`, { method: 'PATCH', body: JSON.stringify(input) }) }
+export function updatePracticeSession(id: string, input: { durationSeconds?: number; date?: string; pieceId?: string | null; notes?: string | null }) { return request<PracticeSession>(`/practice/sessions/${id}`, { method: 'PATCH', body: JSON.stringify(input) }) }
 export function deletePracticeSession(id: string) { return request<{ deleted: boolean }>(`/practice/sessions/${id}`, { method: 'DELETE' }) }
 export function getMilestones() { return request<Milestone[]>('/milestones') }
 export function createMilestone(input: { title: string; date: string; kind: Milestone['kind']; notes?: string }) { return request<Milestone>('/milestones', { method: 'POST', body: JSON.stringify(input) }) }
