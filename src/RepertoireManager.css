@@ -15,3 +15,25 @@
 .personal-fields { display: grid; gap: 15px; }.personal-fields p { background: #f8f4ef; border-radius: 6px; color: var(--muted); font-size: 11px; line-height: 1.5; margin: 0; padding: 10px; }.personal-fields .auth-submit { margin-top: 2px; }.modal-backdrop { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 17px; background: #2b1c304d; }
 @media (max-width: 680px) { .manager-heading { display: block; }.manager-heading .session-button { width: 100%; margin-top: 19px; }.manager-layout { grid-template-columns: 1fr; margin-top: 25px; }.managed-piece { grid-template-columns: 40px minmax(0, 1fr) 20px; gap: 8px; }.managed-progress { grid-column: 2 / -1; grid-row: 2; }.use-piece { grid-column: 2; grid-row: 3; justify-self: start; }.remove-piece { grid-column: 3; grid-row: 1; }.filter-row select { flex: 1; }.add-modal { padding: 20px 16px; } }
 .empty-focus { min-height: 214px; display: grid; align-content: center; justify-items: start; }.empty-focus h2 { margin: 0 0 7px; }
+
+.managed-piece.selected { border-color: #cbb2d0; }
+.manager-layout { grid-template-columns: minmax(0, 1fr); }
+.managed-piece { grid-template-columns: 43px minmax(0, 1fr) minmax(90px, 150px) auto 28px; }
+.repertoire-tip { max-width: 620px; }
+dialog.add-modal { position: fixed; margin: auto; max-width: calc(100% - 34px); max-height: calc(100dvh - 34px); color: var(--ink); }
+.add-modal::backdrop { background: #2b1c304d; }
+.catalog-result > span { min-width: 0; }
+.catalog-result strong, .catalog-result small { white-space: normal; overflow-wrap: anywhere; }
+.catalog-results { overscroll-behavior: contain; }
+.modal-close, .remove-piece { min-width: 28px; min-height: 28px; }
+.add-tabs button { flex: 1; }
+@media (max-width: 1000px) {
+  .manager-heading { flex-wrap: wrap; }
+  .managed-piece { grid-template-columns: 40px minmax(0, 1fr) 28px; }
+  .managed-progress { grid-column: 2 / -1; grid-row: 2; }
+  .use-piece { grid-column: 2; grid-row: 3; justify-self: start; }
+  .remove-piece { grid-column: 3; grid-row: 1; }
+}
+@media (max-width: 400px) {
+  .filter-row { flex-direction: column; }
+}

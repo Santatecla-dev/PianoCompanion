@@ -1,17 +1,35 @@
-@media (max-width: 680px) {
-  .app-shell:not(.activity-shell) .stats-grid { grid-template-columns: repeat(3, 190px); width: max-content; }
-  .app-shell:not(.activity-shell) .content-grid { min-width: 720px; }
-  .app-shell:not(.activity-shell) .repertoire-section { min-width: 720px; }
-  .repertoire-manager .add-modal { width: 620px; max-width: none; overflow: hidden; }
-  .repertoire-manager .catalog-results { max-height: 125px; overflow: hidden; }
-  .repertoire-manager .managed-piece { min-width: 560px; }
-  .week-panel .week-chart { min-width: 610px; width: 610px; overflow: visible; transform: translateX(-18px); }
-  .week-panel .bar { transform: scaleY(1.8); transform-origin: bottom; }
-  .repertoire-section .piece-list { max-height: 122px; overflow: hidden; }
-  .repertoire-section .piece-row { min-width: 690px; }
-  .continue-panel h2 { width: 185px; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+/* Let grid and flex children shrink without hiding their content. */
+.stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.content-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+.panel, .stat-card, .welcome-row > div, .panel-heading > div { min-width: 0; }
+.panel-heading, .section-heading { gap: 12px; flex-wrap: wrap; }
+.welcome-row h1, .panel h2, .piece-name, .manager-heading { overflow-wrap: anywhere; }
+.session-button { flex-shrink: 0; }
+.week-chart { height: 160px; gap: clamp(4px, 2vw, 14px); }
+.bar-track { width: 100%; justify-content: center; flex-shrink: 0; overflow: hidden; }
+.bar { max-height: 100%; }
+.day-column { min-width: 0; }
+.day-column .day-minutes { color: var(--plum); font-size: 9px; }
+.piece-row { grid-template-columns: 43px minmax(0, 1fr) 95px 80px 18px; }
+.piece-name strong, .piece-name span { white-space: normal; overflow-wrap: anywhere; }
+.piece-progress { height: 4px; border-radius: 4px; overflow: hidden; background: #ece8e5; }
+.piece-progress > span { display: block; height: 100%; background: #b38fbd; }
+.focus-label { color: var(--plum); font-size: 10px; font-weight: 600; }
+.session-feedback { padding: 12px; background: #f8e9e9; color: #873b45; border-radius: 7px; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; }
+button:disabled { cursor: default; }
+.mobile-sign-out { display: none; }
+@media (max-width: 1100px) {
+  .content-grid { grid-template-columns: minmax(0, 1fr); }
+  .piece-row { grid-template-columns: 43px minmax(0, 1fr) 65px 18px; }
+  .piece-row .level-pill { display: none; }
+  .welcome-row { flex-wrap: wrap; }
 }
-
-.week-panel .week-chart { overflow: visible; }
-.repertoire-section .piece-list { overflow: hidden; }
-.week-panel .bar { max-height: none; transform: scaleY(2.35); transform-origin: bottom center; }
+@media (max-width: 680px) {
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .piece-row { grid-template-columns: 40px minmax(0, 1fr) 18px; }
+  .mobile-sign-out { display: block; }
+  .topbar-actions { gap: 8px; }
+  .mobile-nav { padding-bottom: max(11px, env(safe-area-inset-bottom)); }
+  .app-shell { padding-bottom: calc(67px + env(safe-area-inset-bottom)); }
+}
