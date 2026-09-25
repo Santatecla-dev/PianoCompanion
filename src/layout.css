@@ -1,17 +1,1 @@
-@media (max-width: 680px) {
-  .app-shell:not(.activity-shell) .stats-grid { grid-template-columns: repeat(3, 190px); width: max-content; }
-  .app-shell:not(.activity-shell) .content-grid { min-width: 720px; }
-  .app-shell:not(.activity-shell) .repertoire-section { min-width: 720px; }
-  .repertoire-manager .add-modal { width: 620px; max-width: none; overflow: hidden; }
-  .repertoire-manager .catalog-results { max-height: 125px; overflow: hidden; }
-  .repertoire-manager .managed-piece { min-width: 560px; }
-  .week-panel .week-chart { min-width: 610px; width: 610px; overflow: visible; transform: translateX(-18px); }
-  .week-panel .bar { transform: scaleY(1.8); transform-origin: bottom; }
-  .repertoire-section .piece-list { max-height: 122px; overflow: hidden; }
-  .repertoire-section .piece-row { min-width: 690px; }
-  .continue-panel h2 { width: 185px; white-space: nowrap; overflow: hidden; text-overflow: clip; }
-}
-
-.week-panel .week-chart { overflow: visible; }
-.repertoire-section .piece-list { overflow: hidden; }
-.week-panel .bar { max-height: none; transform: scaleY(2.35); transform-origin: bottom center; }
+/* layout overrides removed to keep layout fluid, responsive, and properly contained */
